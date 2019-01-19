@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pandas / Matplotlib Example</title>
+</head>
+<body>
+    <h1>Welcome to our app</h1>
+    <table>
+        <tr>
+                <th>First name</th>
+                <th>Age</th>
+        </tr>
+        {% for k, v in ages.items() %}
+                <tr>
+                        <td>{{ k }}</td>
+                        <td>{{ v }}</td>
+                </tr>
+        {% endfor %}
+    </table>
+
+    <h1>Pie chart</h1>
+    <img src="/donut_pie_chart/" alt="Simple pie chart">
+
+</body>
+</html>
