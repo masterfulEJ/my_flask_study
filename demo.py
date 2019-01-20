@@ -56,6 +56,26 @@ def donut_pie_chart():
     img.seek(0)
     return send_file(img, mimetype='image/png')
 
+@app.route('/data_frame_visualization/')
+def data_frame_visualization():
+    fig, ax = plt.subplots()
+    df=pd.read_csv("gasprice.csv")
+    time=df['time']
+    gasprice=df['value']
+    plt.plot(time,gasprice, color='orange')
+    plt.xlabel("Time (Year)")
+    plt.ylabel("Gas Price")
+    plt.title("Time Series of US Gasoline Prices ")
+    canvas = FigureCanvas(fig)
+    img = BytesIO()
+    fig.savefig(img)
+    img.seek(0)
+    return send_file(img, mimetype='image/png')
+
+@app.route('/data_frame_analysis2')
+def data_frame_analysis2():
+    return render_template("data_frame_analysis2.html")
+
 
 if __name__ == "__main__":
     app.run()
